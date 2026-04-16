@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Arisan 4.5Jt</title>
+    <link rel="stylesheet" href="style-arisan.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="floating-elements">
+        <div class="element el-1">💖</div>
+        <div class="element el-2">✨</div>
+        <div class="element el-3">💸</div>
+        <div class="element el-4">🌸</div>
+        <div class="element el-5"></div>
+        <div class="element el-6"></div>
+        <div class="element el-7">💖</div>
+        <div class="element el-8">✨</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Dashboard Arisan By Laura</h1>
+            <p>Get 4,5Jt • 100rb/Minggu • 45 Anggota</p>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="cariNama()" placeholder="🔍 Cari nama anggota...">
+            </div>
+        </header>
+
+        <main>
+            <div class="table-container">
+                <table id="tabelArisan">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Anggota</th>
+                            <th>Jadwal Get</th>
+                            <th>Status</th>
+                            <th>Denda</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const initialData = [
+            { no: 1, nama: "Raya Monic (Ara)", tgl: "25/02", status: "Lunas", denda: 0 },
+            { no: 2, nama: "Raya Monic (Raya)", tgl: "04/03", status: "Lunas", denda: 0 },
+            { no: 3, nama: "Elisa", tgl: "11/03", status: "Lunas", denda: 0 },
+            { no: 4, nama: "Mamak", tgl: "18/03", status: "Lunas", denda: 0 },
+            { no: 5, nama: "Ka Sella", tgl: "25/03", status: "Telat", denda: 0 },
+            { no: 6, nama: "Ka Sella", tgl: "01/04", status: "Telat", denda: 0 },
+            { no: 7, nama: "Ka Nanda", tgl: "08/04", status: "Lunas", denda: 0 },
+            { no: 8, nama: "Keysha", tgl: "15/04", status: "Belum", denda: 0 },
+            { no: 9, nama: "Ka Sella", tgl: "22/04", status: "Telat", denda: 0 },
+            { no: 10, nama: "Dini", tgl: "29/04", status: "Lunas", denda: 0 },
+            { no: 11, nama: "Dini", tgl: "06/05", status: "Lunas", denda: 0 },
+            { no: 12, nama: "Ka Astri", tgl: "13/05", status: "Lunas", denda: 0 },
+            { no: 13, nama: "Ka Reta", tgl: "20/05", status: "Lunas", denda: 0 },
+            { no: 14, nama: "Keysha", tgl: "27/05", status: "Belum", denda: 0 },
+            { no: 15, nama: "Ka Sriayu", tgl: "04/06", status: "Lunas", denda: 0 },
+            { no: 16, nama: "Ka Eca", tgl: "11/06", status: "Lunas", denda: 0 },
+            { no: 17, nama: "Adli", tgl: "18/06", status: "Lunas", denda: 0 },
+            { no: 18, nama: "Ka Rini", tgl: "25/06", status: "Lunas", denda: 0 },
+            { no: 19, nama: "Ka Lita", tgl: "02/07", status: "Lunas", denda: 0 },
+            { no: 20, nama: "Shaina", tgl: "09/07", status: "Lunas", denda: 0 },
+            { no: 21, nama: "Myesha", tgl: "16/07", status: "Lunas", denda: 0 },
+            { no: 22, nama: "Ka Nipa", tgl: "23/07", status: "Lunas", denda: 0 },
+            { no: 23, nama: "Siti Rohmawati", tgl: "30/07", status: "Lunas", denda: 0 },
+            { no: 24, nama: "Ka Lita", tgl: "06/08", status: "Lunas", denda: 0 },
+            { no: 25, nama: "Ka Nanda", tgl: "13/08", status: "Lunas", denda: 0 },
+            { no: 26, nama: "Indahtfny", tgl: "20/08", status: "Lunas", denda: 0 },
+            { no: 27, nama: "Arrciks", tgl: "28/08", status: "Lunas", denda: 0 },
+            { no: 28, nama: "Thalita", tgl: "04/09", status: "Lunas", denda: 0 },
+            { no: 29, nama: "Asma", tgl: "11/09", status: "Lunas", denda: 0 },
+            { no: 30, nama: "Trisni", tgl: "18/09", status: "Lunas", denda: 0 },
+            { no: 31, nama: "Nisa", tgl: "25/09", status: "Lunas", denda: 0 },
+            { no: 32, nama: "Trisni", tgl: "02/10", status: "Lunas", denda: 0 },
+            { no: 33, nama: "Ka Rini", tgl: "09/10", status: "Lunas", denda: 0 },
+            { no: 34, nama: "Ka Ayu", tgl: "16/10", status: "Lunas", denda: 0 },
+            { no: 35, nama: "Naza", tgl: "23/10", status: "Lunas", denda: 0 },
+            { no: 36, nama: "Siti Rohmawati", tgl: "30/10", status: "Lunas", denda: 0 },
+            { no: 37, nama: "Ka Nanda", tgl: "06/11", status: "Lunas", denda: 0 },
+            { no: 38, nama: "Diana", tgl: "13/11", status: "Lunas", denda: 0 },
+            { no: 39, nama: "Alsya", tgl: "20/11", status: "Lunas", denda: 0 },
+            { no: 40, nama: "Ka Eca", tgl: "27/11", status: "Lunas", denda: 0 },
+            { no: 41, nama: "Nenek", tgl: "04/12", status: "Telat", denda: 100000 },
+            { no: 42, nama: "Anon Arifani", tgl: "11/12", status: "Lunas", denda: 0 },
+            { no: 43, nama: "Dian", tgl: "18/12", status: "Lunas", denda: 0 },
+            { no: 44, nama: "Bga", tgl: "25/12", status: "Belum", denda: 0 },
+            { no: 45, nama: "Indah Elisa", tgl: "01/01", status: "Telat", denda: 0 }
+        ];
+
+        window.onload = function () {
+            // Ambil data yang ada di memori
+            const dataAda = localStorage.getItem('dataArisan');
+
+            // Paksa reset jika data tidak ada, atau datanya cuma array kosong "[]"
+            if (!dataAda || dataAda === "[]") {
+                localStorage.setItem('dataArisan', JSON.stringify(initialData));
+            }
+
+            renderTable();
+        };
+
+        function renderTable(filter = "") {
+            const data = JSON.parse(localStorage.getItem('dataArisan'));
+            const tbody = document.querySelector('#tabelArisan tbody');
+            tbody.innerHTML = "";
+
+            data.forEach((item, index) => {
+                if (item.nama.toLowerCase().includes(filter.toLowerCase())) {
+                    const row = document.createElement('tr');
+                    let statusClass = item.status.toLowerCase().replace(/\s/g, "");
+
+                    row.innerHTML = `
+                        <td>${item.no}</td>
+                        <td><strong>${item.nama}</strong></td>
+                        <td>${item.tgl}</td>
+                        <td><span class="status ${statusClass}">${item.status}</span></td>
+                        <td>Rp ${parseInt(item.denda || 0).toLocaleString()}</td>
+                        <td><button class="btn-edit" onclick="updateStatus(${index})">Update</button></td>
+                    `;
+                    tbody.appendChild(row);
+                }
+            });
+        }
+
+        function updateStatus(originalIndex) {
+            let data = JSON.parse(localStorage.getItem('dataArisan'));
+            const target = data[originalIndex];
+
+            const newStatus = prompt(`Update Status untuk ${target.nama}:`, target.status);
+            if (newStatus !== null) {
+                data[originalIndex].status = newStatus;
+
+                const newDenda = prompt(`Update Denda untuk ${target.nama}:`, target.denda);
+                if (newDenda !== null) data[originalIndex].denda = parseInt(newDenda) || 0;
+
+                localStorage.setItem('dataArisan', JSON.stringify(data));
+
+                const currentFilter = document.getElementById('searchInput').value;
+                renderTable(currentFilter);
+            }
+        }
+
+        function cariNama() {
+            let input = document.getElementById('searchInput').value;
+            renderTable(input);
+        }
+    </script>
+</body>
+
+</html>
