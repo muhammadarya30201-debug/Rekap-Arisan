@@ -13,42 +13,54 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            /* Gradient Pink lembut sesuai dashboard */
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            color: white;
+            color: #d81b60; /* Warna teks pink tua */
             overflow: hidden;
         }
         .welcome-card {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.9); /* Putih bersih transparan */
             padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 30px; /* Lebih rounded biar aesthetic */
+            border: 2px solid #f06292;
+            box-shadow: 0 10px 30px rgba(240, 98, 146, 0.2);
+            max-width: 400px;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        p { margin-bottom: 30px; opacity: 0.9; }
+        h1 { 
+            font-size: 2.2rem; 
+            margin-bottom: 10px;
+            color: #d81b60;
+        }
+        p { 
+            margin-bottom: 30px; 
+            color: #ad1457;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
         .btn-masuk {
             text-decoration: none;
-            background: #ff4b2b;
+            /* Warna ungu/pink gradient sesuai tombol Update di dashboard */
+            background: linear-gradient(to right, #9c27b0, #e91e63);
             color: white;
             padding: 15px 40px;
             border-radius: 50px;
             font-weight: 600;
+            display: inline-block;
             transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
         }
         .btn-masuk:hover {
-            transform: scale(1.1);
-            background: #ff416c;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="welcome-card">
-        <h1>Halo Cantik Aryaa! ❤️</h1>
-        <p>Dashboard Arisan For Laura.<br>Klik tombol di bawah buat mulai rekap ya dan biar ga susah lagi ya sayang aryaa </p>
+        <h1>Halo Cantik Aryaa ! ❤️</h1>
+        <p>Dashboard Arisan For Lauraa.<br>Biar ga susah lagi ya sayang aryaa :D </p>
         <a href="dashboard.html" class="btn-masuk">Buka Dashboard</a>
     </div>
 </body>
