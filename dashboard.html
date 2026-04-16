@@ -16,8 +16,6 @@
         <div class="element el-2">✨</div>
         <div class="element el-3">💸</div>
         <div class="element el-4">🌸</div>
-        <div class="element el-5"></div>
-        <div class="element el-6"></div>
         <div class="element el-7">💖</div>
         <div class="element el-8">✨</div>
     </div>
@@ -49,72 +47,73 @@
                     </tbody>
                 </table>
             </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="font-size: 12px; color: #888;">*Data otomatis tersimpan di HP ini</p>
+                <button onclick="resetData()" style="background: #eee; border: none; padding: 5px 15px; border-radius: 10px; cursor: pointer; font-size: 11px; color: #999;">Reset ke Default</button>
+            </div>
         </main>
     </div>
 
     <script>
         const initialData = [
-            { no: 1, nama: "Raya Monic (Ara)", tgl: "25/02", status: "Lunas", denda: 0 },
-            { no: 2, nama: "Raya Monic (Raya)", tgl: "04/03", status: "Lunas", denda: 0 },
-            { no: 3, nama: "Elisa", tgl: "11/03", status: "Lunas", denda: 0 },
-            { no: 4, nama: "Mamak", tgl: "18/03", status: "Lunas", denda: 0 },
-            { no: 5, nama: "Ka Sella", tgl: "25/03", status: "Telat", denda: 0 },
-            { no: 6, nama: "Ka Sella", tgl: "01/04", status: "Telat", denda: 0 },
-            { no: 7, nama: "Ka Nanda", tgl: "08/04", status: "Lunas", denda: 0 },
+            { no: 1, nama: "Raya Monic (Ara)", tgl: "25/02", status: "Belum", denda: 0 },
+            { no: 2, nama: "Raya Monic (Raya)", tgl: "04/03", status: "Belum", denda: 0 },
+            { no: 3, nama: "Elisa", tgl: "11/03", status: "Belum", denda: 0 },
+            { no: 4, nama: "Mamak", tgl: "18/03", status: "Belum", denda: 0 },
+            { no: 5, nama: "Ka Sella", tgl: "25/03", status: "Belum", denda: 0 },
+            { no: 6, nama: "Ka Sella", tgl: "01/04", status: "Belum", denda: 0 },
+            { no: 7, nama: "Ka Nanda", tgl: "08/04", status: "Belum", denda: 0 },
             { no: 8, nama: "Keysha", tgl: "15/04", status: "Belum", denda: 0 },
-            { no: 9, nama: "Ka Sella", tgl: "22/04", status: "Telat", denda: 0 },
-            { no: 10, nama: "Dini", tgl: "29/04", status: "Lunas", denda: 0 },
-            { no: 11, nama: "Dini", tgl: "06/05", status: "Lunas", denda: 0 },
-            { no: 12, nama: "Ka Astri", tgl: "13/05", status: "Lunas", denda: 0 },
-            { no: 13, nama: "Ka Reta", tgl: "20/05", status: "Lunas", denda: 0 },
+            { no: 9, nama: "Ka Sella", tgl: "22/04", status: "Belum", denda: 0 },
+            { no: 10, nama: "Dini", tgl: "29/04", status: "Belum", denda: 0 },
+            { no: 11, nama: "Dini", tgl: "06/05", status: "Belum", denda: 0 },
+            { no: 12, nama: "Ka Astri", tgl: "13/05", status: "Belum", denda: 0 },
+            { no: 13, nama: "Ka Reta", tgl: "20/05", status: "Belum", denda: 0 },
             { no: 14, nama: "Keysha", tgl: "27/05", status: "Belum", denda: 0 },
-            { no: 15, nama: "Ka Sriayu", tgl: "04/06", status: "Lunas", denda: 0 },
-            { no: 16, nama: "Ka Eca", tgl: "11/06", status: "Lunas", denda: 0 },
-            { no: 17, nama: "Adli", tgl: "18/06", status: "Lunas", denda: 0 },
-            { no: 18, nama: "Ka Rini", tgl: "25/06", status: "Lunas", denda: 0 },
-            { no: 19, nama: "Ka Lita", tgl: "02/07", status: "Lunas", denda: 0 },
-            { no: 20, nama: "Shaina", tgl: "09/07", status: "Lunas", denda: 0 },
-            { no: 21, nama: "Myesha", tgl: "16/07", status: "Lunas", denda: 0 },
-            { no: 22, nama: "Ka Nipa", tgl: "23/07", status: "Lunas", denda: 0 },
-            { no: 23, nama: "Siti Rohmawati", tgl: "30/07", status: "Lunas", denda: 0 },
-            { no: 24, nama: "Ka Lita", tgl: "06/08", status: "Lunas", denda: 0 },
-            { no: 25, nama: "Ka Nanda", tgl: "13/08", status: "Lunas", denda: 0 },
-            { no: 26, nama: "Indahtfny", tgl: "20/08", status: "Lunas", denda: 0 },
-            { no: 27, nama: "Arrciks", tgl: "28/08", status: "Lunas", denda: 0 },
-            { no: 28, nama: "Thalita", tgl: "04/09", status: "Lunas", denda: 0 },
-            { no: 29, nama: "Asma", tgl: "11/09", status: "Lunas", denda: 0 },
-            { no: 30, nama: "Trisni", tgl: "18/09", status: "Lunas", denda: 0 },
-            { no: 31, nama: "Nisa", tgl: "25/09", status: "Lunas", denda: 0 },
-            { no: 32, nama: "Trisni", tgl: "02/10", status: "Lunas", denda: 0 },
-            { no: 33, nama: "Ka Rini", tgl: "09/10", status: "Lunas", denda: 0 },
-            { no: 34, nama: "Ka Ayu", tgl: "16/10", status: "Lunas", denda: 0 },
-            { no: 35, nama: "Naza", tgl: "23/10", status: "Lunas", denda: 0 },
-            { no: 36, nama: "Siti Rohmawati", tgl: "30/10", status: "Lunas", denda: 0 },
-            { no: 37, nama: "Ka Nanda", tgl: "06/11", status: "Lunas", denda: 0 },
-            { no: 38, nama: "Diana", tgl: "13/11", status: "Lunas", denda: 0 },
-            { no: 39, nama: "Alsya", tgl: "20/11", status: "Lunas", denda: 0 },
-            { no: 40, nama: "Ka Eca", tgl: "27/11", status: "Lunas", denda: 0 },
-            { no: 41, nama: "Nenek", tgl: "04/12", status: "Telat", denda: 100000 },
-            { no: 42, nama: "Anon Arifani", tgl: "11/12", status: "Lunas", denda: 0 },
-            { no: 43, nama: "Dian", tgl: "18/12", status: "Lunas", denda: 0 },
+            { no: 15, nama: "Ka Sriayu", tgl: "04/06", status: "Belum", denda: 0 },
+            { no: 16, nama: "Ka Eca", tgl: "11/06", status: "Belum", denda: 0 },
+            { no: 17, nama: "Adli", tgl: "18/06", status: "Belum", denda: 0 },
+            { no: 18, nama: "Ka Rini", tgl: "25/06", status: "Belum", denda: 0 },
+            { no: 19, nama: "Ka Lita", tgl: "02/07", status: "Belum", denda: 0 },
+            { no: 20, nama: "Shaina", tgl: "09/07", status: "Belum", denda: 0 },
+            { no: 21, nama: "Myesha", tgl: "16/07", status: "Belum", denda: 0 },
+            { no: 22, nama: "Ka Nipa", tgl: "23/07", status: "Belum", denda: 0 },
+            { no: 23, nama: "Siti Rohmawati", tgl: "30/07", status: "Belum", denda: 0 },
+            { no: 24, nama: "Ka Lita", tgl: "06/08", status: "Belum", denda: 0 },
+            { no: 25, nama: "Ka Nanda", tgl: "13/08", status: "Belum", denda: 0 },
+            { no: 26, nama: "Indahtfny", tgl: "20/08", status: "Belum", denda: 0 },
+            { no: 27, nama: "Arrciks", tgl: "28/08", status: "Belum", denda: 0 },
+            { no: 28, nama: "Thalita", tgl: "04/09", status: "Belum", denda: 0 },
+            { no: 29, nama: "Asma", tgl: "11/09", status: "Belum", denda: 0 },
+            { no: 30, nama: "Trisni", tgl: "18/09", status: "Belum", denda: 0 },
+            { no: 31, nama: "Nisa", tgl: "25/09", status: "Belum", denda: 0 },
+            { no: 32, nama: "Trisni", tgl: "02/10", status: "Belum", denda: 0 },
+            { no: 33, nama: "Ka Rini", tgl: "09/10", status: "Belum", denda: 0 },
+            { no: 34, nama: "Ka Ayu", tgl: "16/10", status: "Belum", denda: 0 },
+            { no: 35, nama: "Naza", tgl: "23/10", status: "Belum", denda: 0 },
+            { no: 36, nama: "Siti Rohmawati", tgl: "30/10", status: "Belum", denda: 0 },
+            { no: 37, nama: "Ka Nanda", tgl: "06/11", status: "Belum", denda: 0 },
+            { no: 38, nama: "Diana", tgl: "13/11", status: "Belum", denda: 0 },
+            { no: 39, nama: "Alsya", tgl: "20/11", status: "Belum", denda: 0 },
+            { no: 40, nama: "Ka Eca", tgl: "27/11", status: "Belum", denda: 0 },
+            { no: 41, nama: "Nenek", tgl: "04/12", status: "Belum", denda: 0 },
+            { no: 42, nama: "Anon Arifani", tgl: "11/12", status: "Belum", denda: 0 },
+            { no: 43, nama: "Dian", tgl: "18/12", status: "Belum", denda: 0 },
             { no: 44, nama: "Bga", tgl: "25/12", status: "Belum", denda: 0 },
-            { no: 45, nama: "Indah Elisa", tgl: "01/01", status: "Telat", denda: 0 }
+            { no: 45, nama: "Indah Elisa", tgl: "01/01", status: "Belum", denda: 0 }
         ];
 
         window.onload = function () {
-            // Ambil data yang ada di memori
-            const dataAda = localStorage.getItem('dataArisan');
-
-            // Paksa reset jika data tidak ada, atau datanya cuma array kosong "[]"
-            if (!dataAda || dataAda === "[]") {
-                localStorage.setItem('dataArisan', JSON.stringify(initialData));
+            const dataAda = localStorage.getItem('dataArisanLaura_v2');
+            if (!dataAda) {
+                localStorage.setItem('dataArisanLaura_v2', JSON.stringify(initialData));
             }
-
             renderTable();
         };
 
         function renderTable(filter = "") {
-            const data = JSON.parse(localStorage.getItem('dataArisan'));
+            const data = JSON.parse(localStorage.getItem('dataArisanLaura_v2'));
             const tbody = document.querySelector('#tabelArisan tbody');
             tbody.innerHTML = "";
 
@@ -137,20 +136,17 @@
         }
 
         function updateStatus(originalIndex) {
-            let data = JSON.parse(localStorage.getItem('dataArisan'));
-            const target = data[originalIndex];
-
-            const newStatus = prompt(`Update Status untuk ${target.nama}:`, target.status);
+            let data = JSON.parse(localStorage.getItem('dataArisanLaura_v2'));
+            
+            const newStatus = prompt(`Update Status (Lunas/Belum/Telat):`, data[originalIndex].status);
             if (newStatus !== null) {
                 data[originalIndex].status = newStatus;
 
-                const newDenda = prompt(`Update Denda untuk ${target.nama}:`, target.denda);
+                const newDenda = prompt(`Update Denda (Angka saja):`, data[originalIndex].denda);
                 if (newDenda !== null) data[originalIndex].denda = parseInt(newDenda) || 0;
 
-                localStorage.setItem('dataArisan', JSON.stringify(data));
-
-                const currentFilter = document.getElementById('searchInput').value;
-                renderTable(currentFilter);
+                localStorage.setItem('dataArisanLaura_v2', JSON.stringify(data));
+                renderTable(document.getElementById('searchInput').value);
             }
         }
 
@@ -158,7 +154,13 @@
             let input = document.getElementById('searchInput').value;
             renderTable(input);
         }
+        
+        function resetData() {
+            if (confirm("Hapus semua catatan di HP ini dan balik ke awal?")) {
+                localStorage.removeItem('dataArisanLaura_v2');
+                location.reload();
+            }
+        }
     </script>
 </body>
-
 </html>
