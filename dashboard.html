@@ -22,8 +22,8 @@
 
     <div class="container">
         <header>
-            <h1>Dashboard Arisan By Laura</h1>
-            <p>Get 4,5Jt • 100rb/Minggu • 45 Anggota</p>
+            <h1>Rekap Arisan Laura ✨</h1>
+            <p>Total Get: 4.5 Juta • 45 Anggota Tersayang</p>
 
             <div class="search-box">
                 <input type="text" id="searchInput" onkeyup="cariNama()" placeholder="🔍 Cari nama anggota...">
@@ -52,8 +52,34 @@
                 <p style="font-size: 12px; color: #888;">*Data otomatis tersimpan di HP ini</p>
                 <button onclick="resetData()" style="background: #eee; border: none; padding: 5px 15px; border-radius: 10px; cursor: pointer; font-size: 11px; color: #999;">Reset ke Default</button>
             </div>
+
+            <div style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+                <button id="btnSurprise" onclick="showLoveMessage()" style="background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); color: white; border: none; padding: 12px 25px; border-radius: 25px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4); font-family: 'Poppins', sans-serif;">
+                    Click here babe if u feel tired 🌸
+                </button>
+            </div>
+
+            <div id="loveMessage" style="display: none; text-align: center; padding: 30px; margin: 20px; background: rgba(255, 255, 255, 0.7); border-radius: 20px; backdrop-filter: blur(5px); border: 1px solid #ffb6c1; animation: fadeIn 1s ease-in;">
+                <h2 style="color: #ff4b2b; font-family: 'Poppins', sans-serif; margin-bottom: 15px;">Istirahat sebentar ya, Laura cantik... ❤️</h2>
+                <p style="font-family: 'Poppins', sans-serif; color: #555; line-height: 1.8; font-style: italic; font-size: 15px;">
+                    "Arya tau rekap 45 orang ini pasti bikin Laura pusing dan capek banget. <br>
+                    Tapi Arya nggak mau Laura ngerasain ribetnya sendirian, makanya Arya buatin ini khusus buat Laura. <br><br>
+                    Ingat ya sayang, seberapa banyak pun status 'Belum' di tabel atas, <br>
+                    status Arya buat Laura bakal selalu 'Lunas' dengan rasa sayang yang nggak bakal habis. <br><br>
+                    Kalau udah capek, istirahat ya? Nggak perlu dipaksain hari ini. <br>
+                    Arya bakal selalu ada di samping Laura dan selalu jadi support system terbaik buat Laura. <br><br>
+                    Love you always, Arya ✨"
+                </p>
+            </div>
         </main>
     </div>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 
     <script>
         const initialData = [
@@ -95,26 +121,22 @@
             { no: 36, nama: "Siti Rohmawati", tgl: "30/10", status: "Belum", denda: 0 },
             { no: 37, nama: "Ka Nanda", tgl: "06/11", status: "Belum", denda: 0 },
             { no: 38, nama: "Diana", tgl: "13/11", status: "Belum", denda: 0 },
-            { no: 39, nama: "Alsya", tgl: "20/11", status: "Belum", denda: 0 },
-            { no: 40, nama: "Ka Eca", tgl: "27/11", status: "Belum (-50 -50 -50 ‼️)", denda: 0 },
-            { no: 41, nama: "Nenek", tgl: "04/12", status: "Belum", denda: 0 },
-            { no: 42, nama: "Anon Arifani", tgl: "11/12", status: "Belum", denda: 0 },
             { no: 43, nama: "Dian", tgl: "18/12", status: "Belum", denda: 0 },
             { no: 44, nama: "Bga", tgl: "25/12", status: "Belum", denda: 0 },
             { no: 45, nama: "Indah Elisa", tgl: "01/01", status: "Belum (-50x5 ‼️)", denda: 0 }
         ];
 
         window.onload = function () {
-            // Gunakan v5 agar data sebelumnya terhapus dan pakai logika warna baru ini
-            const dataAda = localStorage.getItem('dataArisanLaura_v5');
+            // Gunakan v6 agar data sebelumnya terhapus dan pakai logika warna baru ini
+            const dataAda = localStorage.getItem('dataArisanLaura_v6');
             if (!dataAda) {
-                localStorage.setItem('dataArisanLaura_v5', JSON.stringify(initialData));
+                localStorage.setItem('dataArisanLaura_v6', JSON.stringify(initialData));
             }
             renderTable();
         };
 
         function renderTable(filter = "") {
-            const data = JSON.parse(localStorage.getItem('dataArisanLaura_v5'));
+            const data = JSON.parse(localStorage.getItem('dataArisanLaura_v6'));
             const tbody = document.querySelector('#tabelArisan tbody');
             tbody.innerHTML = "";
 
@@ -123,13 +145,13 @@
                 if (namaTampil.toLowerCase().includes(filter.toLowerCase())) {
                     const row = document.createElement('tr');
                     
-                    let statusClass = "belum"; // Default warna kuning/abu
+                    let statusClass = "belum"; 
                     const s = item.status.toLowerCase();
                     
                     if (s.includes("lunas")) {
-                        statusClass = "lunas"; // Warna Hijau
+                        statusClass = "lunas"; 
                     } else if (s.includes("-50") || s.includes("‼️")) {
-                        statusClass = "telat"; // Warna Merah (Khusus yang minus)
+                        statusClass = "telat"; 
                     }
 
                     row.innerHTML = `
@@ -146,13 +168,13 @@
         }
 
         function updateStatus(originalIndex) {
-            let data = JSON.parse(localStorage.getItem('dataArisanLaura_v5'));
+            let data = JSON.parse(localStorage.getItem('dataArisanLaura_v6'));
             const newStatus = prompt(`Update Status untuk ${data[originalIndex].nama}:`, data[originalIndex].status);
             if (newStatus !== null) {
                 data[originalIndex].status = newStatus;
                 const newDenda = prompt(`Update Denda:`, data[originalIndex].denda);
                 if (newDenda !== null) data[originalIndex].denda = parseInt(newDenda) || 0;
-                localStorage.setItem('dataArisanLaura_v5', JSON.stringify(data));
+                localStorage.setItem('dataArisanLaura_v6', JSON.stringify(data));
                 renderTable(document.getElementById('searchInput').value);
             }
         }
@@ -163,9 +185,18 @@
         
         function resetData() {
             if (confirm("Reset ke data awal?")) {
-                localStorage.removeItem('dataArisanLaura_v5');
+                localStorage.removeItem('dataArisanLaura_v6');
                 location.reload();
             }
+        }
+
+        function showLoveMessage() {
+            const msg = document.getElementById('loveMessage');
+            const btn = document.getElementById('btnSurprise');
+            
+            msg.style.display = 'block';
+            msg.scrollIntoView({ behavior: 'smooth' });
+            btn.style.display = 'none';
         }
     </script>
 </body>
